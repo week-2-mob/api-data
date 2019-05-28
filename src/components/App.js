@@ -1,5 +1,6 @@
 import Component from './Component.js';
 import Header from './Header.js';
+import FuturamaList from './FuturamaList.js';
 
 class App extends Component {
     
@@ -10,7 +11,11 @@ class App extends Component {
         const headerDOM = header.render();
 
         const main = dom.querySelector('main');
-        dom.insertBefore(headerDOM, main); 
+        dom.insertBefore(headerDOM, main);
+
+        const futuramaList = new FuturamaList();
+        main.appendChild(futuramaList.render());
+
         return dom;
     }
 
