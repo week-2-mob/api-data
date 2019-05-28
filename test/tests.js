@@ -1,3 +1,5 @@
+import './html-equal.js';
+
 const test = QUnit.test;
 
 test('time to test a function', function(assert) {
