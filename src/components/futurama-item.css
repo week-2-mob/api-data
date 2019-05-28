@@ -1,0 +1,20 @@
+.futurama-item {
+    list-style: none;
+    height: 350px;
+    width: 300px;
+    text-align: center;
+    margin: 0 10px 10px 0px;
+    border: 1px solid red;
+    box-shadow: 5px 5px 5px gray;
+    background-color: lightgray;
+}
+
+.futurama-item img {
+    height: 150px;
+}
+
+.futurama-item:hover {
+    transition: .4s;
+    transform: scale(1.2);
+}
+
