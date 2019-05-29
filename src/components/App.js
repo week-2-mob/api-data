@@ -22,19 +22,33 @@ class App extends Component {
         const futuramaList = new FuturamaList({ quotes: [] });
         main.appendChild(futuramaList.render());
 
-        const loading = new Loading({ loading: true });
+        const loading = new Loading({ loading: false });
         main.appendChild(loading.render());
+        function loadQuotes() {
+            const params = window.location.hash.slice(1);
+            const searchParams = new URLSearchParams(params);
+            const search = searchParams.get('search');
+            
+            loading.update({ loading: true });
 
-        futuramaApi.getQuotes()
-            .then(quotes => {
-                futuramaList.update({ quotes });
-            })
-            .catch(err => {
-                console.log(err);
-            })
-            .finally(() => {
-                loading.update({ loading: false });
-            });
+            futuramaApi.getQuotes(search)
+                .then(quotes => {
+                    futuramaList.update({ quotes });
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .finally(() => {
+                    loading.update({ loading: false });
+                });
+        }
+
+        loadQuotes();
+
+        window.addEventListener('hashchange', () => {
+            loadQuotes();
+        });
+
         return dom;
     }
 
