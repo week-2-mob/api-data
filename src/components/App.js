@@ -3,6 +3,7 @@ import Component from './Component.js';
 import Header from './Header.js';
 import FuturamaList from './FuturamaList.js';
 import Loading from './Loading.js';
+import Search from './Search.js';
 
 class App extends Component {
     
@@ -14,6 +15,9 @@ class App extends Component {
 
         const main = dom.querySelector('main');
         dom.insertBefore(headerDOM, main);
+
+        const search = new Search();
+        main.appendChild(search.render());
 
         const futuramaList = new FuturamaList({ quotes: [] });
         main.appendChild(futuramaList.render());

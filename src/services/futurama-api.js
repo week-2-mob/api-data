@@ -1,4 +1,4 @@
-const URL = 'https://futuramaapi.herokuapp.com/api/quotes/50';
+const URL = 'https://futuramaapi.herokuapp.com/api/quotes';
 
 const futuramaApi = {
     getQuotes() {
